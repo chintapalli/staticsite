@@ -1,0 +1,170 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/2.3c3cda77.chunk.css">
+		<link rel="stylesheet" href="css/main.d3608c0d.chunk.css.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+		<div class="App">
+<div>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+
+<div id="navbarBasicExample" class="navbar-menu">
+
+<div class="navbar-start">
+<a href="Home.html" class="navbar-item">Home</a>
+<a href="checkInInvoice.html" class="navbar-item">Check In Invoice</a>
+<a href="checkInContract.html" class="navbar-item">Check In Contract</a>
+<a href="products.html" class="navbar-item">Products</a>
+<a href="ProductAdmin.html" class="navbar-item">Admin</a>
+</div>  <!-- end navbar-start  -->
+
+<div class="navbar-end">
+
+<div class="navbar-item">
+<div class="buttons">
+
+<div>
+<a href="register.html" class="button is-primary"><strong>Register</strong></a>
+<a href="signin.html" class="button is-light">Sign in</a>
+</div>
+
+</div> <!-- end buttons class -->
+
+</div> <!-- end navbar-item class -->
+
+</div> <!-- end navbar-end  class-->
+
+</div>  <!-- end navbar-menu class -->
+
+</nav>
+
+
+</div> <!-- end Second div before App class-->
+
+</div> <!-- end App class -->
+<body>  
+	
+		<span id="ContractData">Content Check-In Form for Contract</span>
+		<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+<table>	<tr>	<td style="text-align:right;>
+		</td>
+		<td>
+            <div class="dropdown pull-right">
+
+                <ul class="dropdown-menu" aria-labelledby="accountLink">
+                    <li><a id="signOut" href="#">Sign out</a></li>
+                </ul>
+            </div>
+		</td>
+	</tr>
+	<tr>	<td style="text-align:right;>
+		<label for="docType">* Soort document</label>
+		</td>
+		<td>
+		<span id="dDocType">		<span class="tableEntry"  title="Contract">Contract&#x2F;Agreement</span></span>
+		</td>
+	</tr>
+	<tr>
+		<td  style="text-align:right;>
+		<label for="uploadFile">* Document Opslaan</label>
+		</td>
+		<td>
+		<input type="file"  name="PrimaryFile" id="primaryFile" required>
+		</td>
+	</tr>
+	<tr>
+		<td  style="text-align:right;>
+		<label for="Klantnummer">* Klantnummer</label>
+		</td>
+		<td>
+		<input id="Klantnummer" type="text" name="Klantnummer" required>
+		</td>
+	</tr>
+	<tr>
+		<td  style="text-align:right;>
+		<label for="Documentnummer">Documentnummer</label>
+		</td>
+		<td>
+		<input id="Documentnummer" type="text" name="Documentnummer">
+		</td>
+	</tr>	
+	<tr>
+		<td style="text-align:right;>
+		<label for="Documentdatum">* Document datum</label>
+		</td>
+		<td>
+		<input type="date" id="Documentdatum" name="Documentdatum" value="" required>
+		</td>
+	</tr>
+	<tr>
+		<td  style="text-align:right;>
+		<label for="KlantCKRnummer">Klant CKR nummer</label>
+		</td>
+		<td>
+		<input id="KlantCKRnummer" type="text" name="KlantCKRnummer">
+		</td>
+	</tr>	
+	<tr>
+		<td style="text-align:right;>
+		<label for="Bronsysteemdocumenttype">Bronsysteem documenttype</label>
+		</td>
+		<td>
+		<select id="Bronsysteemdocumenttype">
+			<option value="">No Selection</option>
+			<option value="SLA">SLA</option>
+			<option value="Factuur">Factuur</option>
+			<option value="Klacht">Klacht</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="Contractstartdatum">* Contract start datum</label>
+		</td>
+		<td>
+		<input type="date" id="Contractstartdatum" name="Contractstartdatum" value="" required>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="Contracteinddatum">* Contract eind datum</label>
+		</td>
+		<td>
+		<input type="date" id="Contracteinddatum" name="Contracteinddatum" value="" required>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="Hoofdcontractnummer">Hoofdcontract nummer</label>
+		</td>
+		<td>
+		<input id="Hoofdcontractnummer" type="text" name="Hoofdcontractnummer">
+		</td>
+	</tr>
+</table>
+
+    <div class="info panel panel-default">
+        <div class="panel-heading">
+
+            <div class="dropdown pull-right">
+
+                <ul class="dropdown-menu" aria-labelledby="accountLink">
+                    <li><a id="checkInContract" href="#">Check in Contract</a></li>
+                </ul>
+            </div>
+        </div>
+
+	<h1>Document status</h1>
+		<span id="result"></span>
+</b>
+    <script src="js/vendor/jquery-3.1.0.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/aws-cognito-sdk.min.js"></script>
+    <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="https://js.arcgis.com/4.3/"></script>
+    <script src="js/config.js"></script>
+    <script src="js/cognito-auth.js"></script>
+    <script src="js/checkInContract.js"></script>
+</body>
+</html>

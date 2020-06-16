@@ -1,0 +1,271 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="css/2.3c3cda77.chunk.css">
+		<link rel="stylesheet" href="css/main.d3608c0d.chunk.css.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	<div class="App">
+<div>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+
+<div id="navbarBasicExample" class="navbar-menu">
+
+<div class="navbar-start">
+<a href="Home.html" class="navbar-item">Home</a>
+<a href="checkInInvoice.html" class="navbar-item">Check In Invoice</a>
+<a href="checkInContract.html" class="navbar-item">Check In Contract</a>
+<a href="products.html" class="navbar-item">Products</a>
+<a href="ProductAdmin.html" class="navbar-item">Admin</a>
+</div>  <!-- end navbar-start  -->
+
+<div class="navbar-end">
+
+<div class="navbar-item">
+<div class="buttons">
+
+<div>
+<a href="register.html" class="button is-primary"><strong>Register</strong></a>
+<a href="signin.html" class="button is-light">Sign in</a>
+</div>
+
+</div> <!-- end buttons class -->
+
+</div> <!-- end navbar-item class -->
+
+</div> <!-- end navbar-end  class-->
+
+</div>  <!-- end navbar-menu class -->
+
+</nav>
+
+
+</div> <!-- end Second div before App class-->
+
+</div> <!-- end App class -->
+<body>  
+		
+		<span id="InvoiceData">Content Check-In Form for Invoice</span>
+		<form method="POST" enctype="multipart/form-data" id="fileUploadForm">
+<table>	<tr>	<td style="text-align:right;>
+		</td>
+		<td>
+            <div class="dropdown pull-right">
+
+                <ul class="dropdown-menu" aria-labelledby="accountLink">
+                    <li><a id="signOut" href="#">Sign out</a></li>
+                </ul>
+            </div>
+		</td>
+	</tr>
+	<tr>	<td style="text-align:right;>
+		<label for="docType">* DocumentType</label>
+		</td>
+		<td>
+		<!--<input id="xdDocType" type="text" name="DocumentType" required>-->
+		<select id="docType" required>
+			<option value="">-- Select --</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td  style="text-align:right;>
+		<label for="uploadFile">* Primary File</label>
+		</td>
+		<td>
+		<input type="file"  name="PrimaryFile" id="primaryFile" required>
+		</td>
+	</tr>
+	<tr>
+		<td  style="text-align:right;>
+		<label for="brand">* Brand</label>
+		</td>
+		<td>
+		<select id="brand" required>
+			<option value="">-- Select --</option>
+			<option value="KPN">KPN</option>
+			<option value="TELFORT">TELFORT</option>
+			<option value="XS4ALL">XS4ALL</option>
+			<option value="NLDC">NLDC</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="invoiceType">* InvoiceType</label>
+		</td>
+		<td>
+		<select id="invoiceType" required>
+			<option value="">-- Select --</option>
+			<option value="BOSS">BOSS</option>
+			<option value="GLAS">GLAS</option>
+			<option value="HVB">HVB</option>
+			<option value="ITCIS">ITCIS</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="customerSegment">* CustomerSegment</label>
+		</td>
+		<td>
+		<select id="customerSegment" required>
+			<option value="">-- Select --</option>
+			<option value="CM">CM</option>
+			<option value="ZM">ZM</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="invoiceDate">* InvoiceDate</label>
+		</td>
+		<td>
+		<input type="date" id="invoiceDate" name="InvoiceDate" value="" required>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="kpnClientID">* KPNClientID</label>
+		</td>
+		<td>
+		<input id="kpnClientID" type="text" name="KPNClientID" required>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="krnNumber">KrnNumber</label>
+		</td>
+		<td>
+		<input id="krnNumber" type="text" name="KrnNumber">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="ckrNumber">CkrNumber</label>
+		</td>
+		<td>
+		<input id="ckrNumber" type="text" name="CkrNumber">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="applicationCustomerID">ApplicationCustomerID</label>
+		</td>
+		<td>
+		<input id="applicationCustomerID" type="text" name="ApplicationCustomerID">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="paymentAgreementNumber">PaymentAgreementNumber</label>
+		</td>
+		<td>
+		<input id="paymentAgreementNumber" type="text" name="PaymentAgreementNumber">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="invoiceNumber">InvoiceNumber</label>
+		</td>
+		<td>
+		<input id="invoiceNumber" type="text" name="InvoiceNumber">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="currency">Currency</label>
+		</td>
+		<td>
+		<select id="currency">
+			<option value="">No Selection</option>
+			<option value="EUR">EUR</option>
+			<option value="USD">USD</option>
+			<option value="GBP">GBP</option>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="invoiceAmountInclVAT">* InvoiceAmountIncl.VAT</label>
+		</td>
+		<td>
+		<input id="invoiceAmountInclVAT" type="text" name="InvoiceAmountInclVAT" required>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="payerName">PayerName</label>
+		</td>
+		<td>
+		<input id="payerName" type="text" name="PayerName">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="payerAddress">PayerAddress</label>
+		</td>
+		<td>
+		<input id="payerAddress" type="text" name="PayerAddress">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="postalCodeCity">PostalCode/City</label>
+		</td>
+		<td>
+		<input id="postalCodeCity" type="text" name="PostalCodeCity">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="kixCode">KIXCode</label>
+		</td>
+		<td>
+		<input id="kixCode" type="text" name="KIXCode">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="delEmailAddress">DelEmailAddress</label>
+		</td>
+		<td>
+		<input id="delEmailAddress" type="text" name="DelEmailAddress">
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:right;>
+		<label for="payerBankAccountnumber">PayerBankAccountnumber</label>
+		</td>
+		<td>
+		<input id="payerBankAccountnumber" type="text" name="PayerBankAccountnumber">
+		</td>
+	</tr>
+</table>
+
+    <div class="info panel panel-default">
+        <div class="panel-heading">
+
+            <div class="dropdown pull-right">
+
+                <ul class="dropdown-menu" aria-labelledby="accountLink">
+                    <li><a id="checkInInvoice" href="#">Check in Invoice</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+	<h1>Document status</h1>
+		<span id="result"></span>
+</b>
+		
+    <script src="js/vendor/jquery-3.1.0.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/aws-cognito-sdk.min.js"></script>
+    <script src="js/vendor/amazon-cognito-identity.min.js"></script>
+    <script src="https://js.arcgis.com/4.3/"></script>
+    <script src="js/config.js"></script>
+    <script src="js/cognito-auth.js"></script>
+    <script src="js/checkInInvoice.js"></script>
+</body>
+</html>

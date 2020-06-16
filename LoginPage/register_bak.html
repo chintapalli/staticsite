@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+	<!-- Javascript SDK-->
+  <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script> 
+  <script src="js/amazon-cognito-auth.min.js"></script>
+  <script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.16.min.js"></script> 
+  <script src="js/amazon-cognito-identity.min.js"></script>  
+  <script src="js/config.js"></script>
+  <script src="css/2.3c3cda77.chunk.css"></script>
+  <script src="css/main.d3608c0d.chunk.css"></script>
+
+   
+   <link rel="stylesheet" href="css/2.3c3cda77.chunk.css">
+   <link rel="stylesheet" href="css/main.d3608c0d.chunk.css.css">
+  
+
+  </head>
+
+	
+  <body>
+  <div class="App">
+<div>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+
+<div id="navbarBasicExample" class="navbar-menu">
+
+<div class="navbar-start">
+<a href="Home.html" class="navbar-item">Home</a>
+<a href="Products.html" class="navbar-item">Products</a>
+<a href="ProductAdmin.html" class="navbar-item">Admin</a>
+</div>  <!-- end navbar-start  -->
+
+<div class="navbar-end">
+
+<div class="navbar-item">
+<div class="buttons">
+
+<div>
+<a href="register.html" class="button is-primary"><strong>Register</strong></a>
+<a href="Login.html" class="button is-light">Log in</a>
+</div>
+
+</div> <!-- end buttons class -->
+
+</div> <!-- end navbar-item class -->
+
+</div> <!-- end navbar-end  class-->
+
+</div>  <!-- end navbar-menu class -->
+
+</nav>
+
+
+</div> <!-- end Second div before App class-->
+
+</div> <!-- end App class -->
+
+   <section class="section auth">
+        <div class="container">
+		  <h1 class="h3 mb-3 font-weight-normal" id="titleheader">Register an Account</h1>
+    <form method="post" action="profile.html">
+  
+	<div class="field">
+              <p class="control has-icons-left">
+	<input type="personalname" class="form-control" id="personalnameRegister" placeholder="Name" pattern=".*" required>
+	    <span class="icon is-small is-left">
+                  <i class="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+	<div class="field">
+              <p class="control has-icons-left">
+    <input type="email" class="form-control" id="emailInputRegister" placeholder="Email" pattern=".*" required>
+	  <span class="icon is-small is-left">
+                  <i class="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+	<div class="field">
+              <p class="control has-icons-left">
+	<input type="password" class="form-control" id="passwordInputRegister" placeholder="Password" pattern=".*" required>
+	  <span class="icon is-small is-left">
+                  <i class="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+    <div class="field">
+              <p class="control has-icons-left">
+	<input type="password" class="form-control" id="confirmationpassword" placeholder="Confirm Password" pattern=".*" required>
+	  <span class="icon is-small is-left">
+                  <i class="fas fa-lock"></i>
+                </span>
+              </p>
+            </div>
+	   <div class="field">
+              <p class="control">
+	<button id="mainbutton" class="btn btn-lg btn-primary btn-block" type="button" onclick="registerButton()" >Register</button>
+	 </p>
+            </div>
+			
+ </form>
+  </div>
+      </section>
+	<script>
+
+		var username;
+		var password;
+		var personalname;
+		var poolData;
+			
+	  function registerButton() {
+		
+		personalnamename =  document.getElementById("personalnameRegister").value;	
+		username = document.getElementById("emailInputRegister").value;
+		
+		if (document.getElementById("passwordInputRegister").value != document.getElementById("confirmationpassword").value) {
+			alert("Passwords Do Not Match!")
+			throw "Passwords Do Not Match!"
+		} else {
+			password =  document.getElementById("passwordInputRegister").value;	
+		}
+		
+		poolData = {
+				UserPoolId : _config.cognito.userPoolId, // Your user pool id here
+				ClientId : _config.cognito.clientId // Your client id here
+			};		
+		var userPool = new AmazonCognitoIdentity.CognitoUserPool(poolData);
+
+		var attributeList = [];
+		
+		var dataEmail = {
+			Name : 'email', 
+			Value : username, //get from form field
+		};
+		
+		var dataPersonalName = {
+			Name : 'name', 
+			Value : personalname, //get from form field
+		};
+
+		var attributeEmail = new AmazonCognitoIdentity.CognitoUserAttribute(dataEmail);
+		var attributePersonalName = new AmazonCognitoIdentity.CognitoUserAttribute(dataPersonalName);
+		
+		
+		attributeList.push(attributeEmail);
+		attributeList.push(attributePersonalName);
+
+		userPool.signUp(username, password, attributeList, null, function(err, result){
+			if (err) {
+				alert(err.message || JSON.stringify(err));
+				return;
+			}
+			cognitoUser = result.user;
+			console.log('user name is ' + cognitoUser.getUsername());
+			//change elements of page
+			document.getElementById("titleheader").innerHTML = "Check your email for a verification link";
+			
+		});
+	  }
+
+	</script>
+ 
+ </body>
+  
+</html>
+
+
+
+
+
+
+
+
